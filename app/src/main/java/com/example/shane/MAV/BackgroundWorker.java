@@ -1,7 +1,15 @@
 package com.example.shane.MAV;
 
+import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +18,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.*;
 
 import static android.content.ContentValues.TAG;
 
@@ -17,52 +29,40 @@ import static android.content.ContentValues.TAG;
  * Created by Shane on 18/12/2016.
  */
 
-public class BackgroundWorker extends AsyncTask<Void,Void,Void> {
+public class BackgroundWorker extends ListActivity{
 
+    private ProgressDialog pDialog;
 
-    BackgroundWorker (){
-        
-    }
+    //JSONParser jParser = new JSONParser();
+
+    ArrayList<HashMap<String, String>> UsersList;
+
+    private static String url_all_users = "http://api.androidhive.info/fyp/android_connect/get_user_login.php";
+
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_USERS = "users";
+    private static final String TAG_EMAIL = "email";
+    private static final String TAG_USERNAME = "username";
+
+    JSONArray users = null;
 
     @Override
-    protected Void doInBackground(Void... params){
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_start);
 
-        String login_url = "http://10.0.0.2/ClientsList.php";
-        Log.d(TAG, "doInBackground: url = " + login_url);
-            try {
-                URL url = new URL(login_url);
-                Log.d(TAG, "doInBackground: URL obj created");
-                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
-                Log.d(TAG, "doInBackground: Connection created");
-                httpURLConnection.setRequestMethod("POST");
-                Log.d(TAG, "doInBackground: Request method set to POST");
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
-                Log.d(TAG, "doInBackground: in and out set to true");
+        UsersList = new ArrayList<HashMap<String, String>>();
 
-                InputStream inputstream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputstream));
-                Log.d(TAG, "doInBackground: inputstream and bufferedreader created");
+        new LoadAllUsers().execute();
 
-                String result = "";
-                String line = "";
-                Log.d(TAG, "doInBackground: result and line Strings created");
+        ListView lv = getListView();
 
-                while((line = bufferedReader.readLine()) != null){
-                    Log.d(TAG, "Stepping through while loop -> current input: " + line);
-                    result += line;
-                }
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Log.d(TAG, "doInBackground: result = " + result);
-
-
-                httpURLConnection.disconnect();
-                Log.d(TAG, "doInBackground: Connection closed");
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+                //String email = ((TextView) view.findViewById())
             }
-        return null;
+        });
     }
 }
