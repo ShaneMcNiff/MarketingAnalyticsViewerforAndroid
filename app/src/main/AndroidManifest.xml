@@ -18,10 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainScreen" />
-        <activity
-            android:name=".CampaignSelection"
-            android:label="@string/title_activity_campaign_selection"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".CampaignScreen"></activity>
     </application>
 
 </manifest>

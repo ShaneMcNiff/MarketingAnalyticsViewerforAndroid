@@ -10,13 +10,63 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainScreen">
 
+    <Button
+        android:text="Bring me to campaign screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="54dp"
+        android:onClick="NavigateCampaignScreen"
+        android:id="@+id/button_go_campaign_screen" />
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dropdown"
+        android:layout_above="@+id/button_go_campaign_screen"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="71dp" />
+
+    <TextView
+        android:text="Eamil:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/current_user_email"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/current_user_username"
+        android:layout_toStartOf="@+id/button_go_campaign_screen"
+        android:layout_marginTop="77dp" />
+
+    <TextView
+        android:text="Username:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/current_user_username"
+        android:textSize="18sp"
+        android:layout_marginTop="31dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:text="Please select which campaign you would like to view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Info"
+        android:layout_above="@+id/dropdown"
+        android:layout_alignStart="@+id/current_user_email"
+        android:layout_marginBottom="41dp"
+        android:textSize="18sp" />
+
+    <Button
+        android:text="Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/button_go_campaign_screen"
+        android:layout_marginStart="61dp"
+        android:onClick="LogoutClicked"
+        android:id="@+id/button_logout" />
 
 
 </RelativeLayout>
