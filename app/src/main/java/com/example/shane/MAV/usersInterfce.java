@@ -8,4 +8,9 @@ public interface usersInterfce {
     public String getName();
     public String getEmail();
     public String getPassword();
+    public int getAdminStatus();
+    public void setName(String name);
+    public void setEmail(String email);
+    public void setPassword(String password);
+    public void changeAdminStatus();
 }

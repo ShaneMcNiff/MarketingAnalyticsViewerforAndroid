@@ -16,17 +16,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Email"
         android:ems="10"
         android:id="@+id/input_email"
-        tools:text="Email"
         android:singleLine="false"
         android:textAlignment="center"
         android:layout_above="@+id/input_password"
-        android:layout_alignStart="@+id/input_password" />
+        android:layout_alignStart="@+id/input_password"
+        android:hint="Email" />
 
     <EditText
-        android:text="Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
@@ -35,7 +33,8 @@
         android:id="@+id/input_password"
         android:textAlignment="center"
         android:layout_above="@+id/button_login"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:hint="Password" />
 
     <Button
         android:text="Login"
@@ -56,5 +55,13 @@
         android:minHeight="200dp"
         android:layout_marginTop="23dp"
         android:layout_alignEnd="@+id/input_email" />
+
+    <TextView
+        android:text="Email or password incorrect!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/popup" />
 
 </RelativeLayout>

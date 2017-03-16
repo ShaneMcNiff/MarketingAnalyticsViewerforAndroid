@@ -29,34 +29,15 @@
         android:layout_marginBottom="71dp" />
 
     <TextView
-        android:text="Email:"
+        android:text="Name:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/current_user_email"
-        android:textSize="18sp"
-        android:layout_alignTop="@+id/current_user_username"
-        android:layout_toStartOf="@+id/button_go_campaign_screen"
-        android:layout_marginTop="77dp" />
-
-    <TextView
-        android:text="Username:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/current_user_username"
+        android:id="@+id/current_user_name"
         android:textSize="18sp"
         android:layout_marginTop="31dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Please select which campaign you would like to view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Info"
-        android:layout_above="@+id/dropdown"
-        android:layout_alignStart="@+id/current_user_email"
-        android:layout_marginBottom="41dp"
-        android:textSize="18sp" />
+        android:layout_alignParentStart="true"
+        android:textAlignment="viewStart" />
 
     <Button
         android:text="Logout"
@@ -67,6 +48,56 @@
         android:layout_marginStart="61dp"
         android:onClick="LogoutClicked"
         android:id="@+id/button_logout" />
+
+    <TextView
+        android:text="Please select which campaign you would like to view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Info"
+        android:layout_marginBottom="42dp"
+        android:textSize="18sp"
+        android:textAlignment="viewStart"
+        android:layout_above="@+id/dropdown"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Email:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/current_user_email"
+        android:textSize="18sp"
+        android:textAlignment="viewStart"
+        android:layout_below="@+id/current_user_name"
+        android:layout_alignEnd="@+id/current_user_name"
+        android:layout_marginTop="25dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameText"
+            android:textAlignment="viewStart"
+            android:text="Testing"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="107dp"
+            android:layout_marginTop="34dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailText"
+            android:textAlignment="viewStart"
+            android:text="Testing"
+            android:layout_marginTop="29dp"
+            android:layout_below="@+id/nameText"
+            android:layout_alignStart="@+id/nameText" />
+    </RelativeLayout>
 
 
 </RelativeLayout>

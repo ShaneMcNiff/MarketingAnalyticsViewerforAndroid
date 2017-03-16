@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainScreen" />
-        <activity android:name=".CampaignScreen"></activity>
+        <activity android:name=".CampaignHome" />
+        <activity android:name=".CampaignSummary"></activity>
     </application>
 
 </manifest>
