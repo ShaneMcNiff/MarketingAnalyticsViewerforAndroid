@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_campaign_goals"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.shane.MAV.MAV_UI.CampaignGoals">
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:background="#b2b2b2"
+        android:layout_weight="0.15" />
+
+    <TextView
+        android:text="Success Criteria :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:id="@+id/successCriteria"
+        android:layout_below="@+id/setEntries"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Goal Entries :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:id="@+id/goalEntries"
+        android:layout_below="@+id/setProfiles"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Goal Profiles :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:id="@+id/goalProfiles"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setEntries"
+        android:textAlignment="textStart"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/goalEntries"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setProfiles"
+        android:textAlignment="textStart"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/goalProfiles"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setSuccess"
+        android:textAlignment="textStart"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/successCriteria"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setFail"
+        android:textAlignment="textStart"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/failCriteria"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Fail Criteria :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:id="@+id/failCriteria"
+        android:layout_below="@+id/setSuccess"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
+
+</RelativeLayout>

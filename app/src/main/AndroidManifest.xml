@@ -10,16 +10,19 @@
         android:label="MAV"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity">
+        <activity android:name=".MAV_UI.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainScreen" />
-        <activity android:name=".CampaignHome" />
-        <activity android:name=".CampaignSummary"></activity>
+        <activity android:name=".MAV_UI.MainScreen" />
+        <activity android:name=".MAV_UI.CampaignHome" />
+        <activity android:name=".MAV_UI.CampaignSummary" />
+        <activity android:name=".MAV_UI.CampaignPerforemance" />
+        <activity android:name=".MAV_UI.CampaignGoals" />
+        <activity android:name=".MAV_UI.QuestionAnswerSummary"></activity>
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainScreen">
+    tools:context=".MAV_UI.MainScreen">
 
     <Button
         android:text="Bring me to campaign screen"
@@ -26,6 +26,7 @@
         android:id="@+id/dropdown"
         android:layout_above="@+id/button_go_campaign_screen"
         android:layout_alignParentStart="true"
+        android:background="#b2b2b2"
         android:layout_marginBottom="71dp" />
 
     <TextView
@@ -37,17 +38,8 @@
         android:layout_marginTop="31dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:textAlignment="viewStart" />
-
-    <Button
-        android:text="Logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/button_go_campaign_screen"
-        android:layout_marginStart="61dp"
-        android:onClick="LogoutClicked"
-        android:id="@+id/button_logout" />
+        android:textAlignment="viewStart"
+        android:textStyle="normal|bold" />
 
     <TextView
         android:text="Please select which campaign you would like to view"
@@ -69,7 +61,8 @@
         android:textAlignment="viewStart"
         android:layout_below="@+id/current_user_name"
         android:layout_alignEnd="@+id/current_user_name"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="25dp"
+        android:textStyle="normal|bold" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -97,6 +90,15 @@
             android:layout_marginTop="29dp"
             android:layout_below="@+id/nameText"
             android:layout_alignStart="@+id/nameText" />
+
+        <Button
+            android:text="Logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="LogoutClicked"
+            android:id="@+id/button_logout"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 

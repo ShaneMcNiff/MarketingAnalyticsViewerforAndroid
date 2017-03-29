@@ -57,6 +57,7 @@ create table `users`(
 	`id` int(11) NOT NULL auto_increment,
     `username` varchar(128) NOT NULL,
     `email` varchar(128) NOT NULL,
+    `password` varchar(128) NOT NULL,
     `is_Admin` bool null,
     PRIMARY KEY (`id`)
 );

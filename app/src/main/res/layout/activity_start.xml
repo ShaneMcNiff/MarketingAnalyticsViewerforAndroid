@@ -10,7 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="com.example.shane.MAV.StartActivity">
+        tools:context="com.example.shane.MAV.MAV_UI.StartActivity">
 
     <EditText
         android:layout_width="wrap_content"
@@ -46,22 +46,29 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app2:srcCompat="@mipmap/ic_logo2"
-        android:id="@+id/imageView5"
-        android:minWidth="200dp"
-        android:minHeight="200dp"
-        android:layout_marginTop="23dp"
-        android:layout_alignEnd="@+id/input_email" />
-
     <TextView
         android:text="Email or password incorrect!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/popup" />
+        android:id="@+id/popup"
+        android:textStyle="normal|bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app2:srcCompat="@mipmap/ic_logo2"
+            android:id="@+id/imageView5"
+            android:minWidth="200dp"
+            android:minHeight="200dp"
+            android:layout_marginTop="17dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 </RelativeLayout>

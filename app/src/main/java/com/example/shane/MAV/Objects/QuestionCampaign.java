@@ -1,55 +1,73 @@
-package com.example.shane.MAV;
+package com.example.shane.MAV.Objects;
+
+import com.example.shane.MAV.Interfaces.questionCampaignInterface;
 
 import java.util.Date;
 
 /**
- * Created by Shane on 22/12/2016.
+ * Created by Shane on 24/03/2017.
  */
 
-public class Campaign {
+public class QuestionCampaign implements questionCampaignInterface {
     private int campaignID;
     private String campaignName;
+    private String description;
     private int countryID;
     private int clientID;
-    private int estimatedEntryCount;
     private int currentEntryCount;
+    private int estimatedEntryCount;
+    private int failedEntries;
     private Date startDate;
     private Date endDate;
 
-    public Campaign(){}
+    public QuestionCampaign(QuestionCampaign campaignDetails){}
 
-    public Campaign(int campaignID, String campaignName, int countryID, int clientID, int estimatedEntryCount, int currentEntryCount, Date startDate, Date endDate){
+
+    public QuestionCampaign(int campaignID, String campaignName, String description, int countryID, int clientID, int currentEntryCount, int estimatedEntryCount, int failedEntries, Date startDate, Date endDate){
         this.campaignID = campaignID;
         this.campaignName = campaignName;
+        this.description = description;
         this.countryID = countryID;
         this.clientID = clientID;
         this.estimatedEntryCount = estimatedEntryCount;
         this.currentEntryCount = currentEntryCount;
+        this.failedEntries = failedEntries;
         this.startDate = startDate;
         this.endDate = endDate;
     }
+
+    public int getCampaignID(){return campaignID;}
+    public String getCampaignName(){return campaignName;}
+    public String getDescription(){return description;}
+    public int getCountryID(){return countryID;}
+    public int getClientID(){return clientID;}
+    public int getCurrentEntryCount(){return currentEntryCount;}
+    public int getEstimatedEntryCount(){return estimatedEntryCount;}
+    public int getFailedEntries(){return failedEntries;}
+    public Date getStartDate(){return startDate;}
+    public Date getEndDate(){return endDate;}
 
     public String[] campaignInfo(){
         String details[] = new String[8];
         details[0] = "" + campaignID;
         details[1] = campaignName;
-        details[2] = "" + countryID;
-        details[3] = "" + clientID;
-        details[4] = "" + estimatedEntryCount;
+        details[2] = description;
+        details[3] = "" + countryID;
+        details[4] = "" + clientID;
         details[5] = "" + currentEntryCount;
-        details[6] = startDate.toString();
-        details[7] = endDate.toString();
+        details[6] = "" + estimatedEntryCount;
+        details[7] = "" + failedEntries;
+        details[8] = startDate.toString();
+        details[9] = endDate.toString();
 
         return details;
     }
 
+
+
     public int entriesLeftToEstimate(){
         return estimatedEntryCount - currentEntryCount;
     }
-
-    /*public int howLongLeft(){
-        return endDate.compareTo(startDate);
-    }*/
 
     public Date howLongLeft(){
         int endY, endMon, endD, endH, endMin, endS, startY, startMon, startD, startH, startMin, startS, rY, rMon, rD, rH, rMin, rS;

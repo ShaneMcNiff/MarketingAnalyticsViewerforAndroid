@@ -1,4 +1,4 @@
-package com.example.shane.MAV;
+package com.example.shane.MAV.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,7 +15,7 @@ public class Campaign_profiles_DB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String create_campaign_profiles_table = "CREATE TABLE `campaign_profiles` (\n" +
-                "  `id` int(11) not null auto_increment,\n" +
+                "  `id` int(11) not null,\n" +
                 "  `campaign_id` int(11) NOT NULL,\n" +
                 "  `profile_id` int(11) NOT NULL,\n" +
                 "  `valid_entry_count` int(11) not null,\n" +
