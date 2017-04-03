@@ -33,6 +33,7 @@ public class MainScreen extends AppCompatActivity {
 
 
         Bundle extras = getIntent().getExtras();
+        //Grab all details passed from previous activity
         String email = extras.getString("Email");
         String name = extras.getString("Name");
         String password = extras.getString("Password");
@@ -44,11 +45,14 @@ public class MainScreen extends AppCompatActivity {
         nameText.setText(currentUser.getName());
         emailText.setText(currentUser.getEmail());
 
+        //This spinner object is different to rest of application, reason for it being named differently
         dropdown =  (Spinner)findViewById(R.id.dropdown);
 
         campaigns_db = new Campaigns_DB(this);
         question_campaign_db = new Question_Campaign_DB(this);
 
+        //Get all active campaigns and add them into the spinner to be selected by the user
+        //Potential to add user designated campaigns only if needed -> just add check for said
         ArrayList<String> first = campaigns_db.getActiveCampaigns();
         ArrayList<String> second = question_campaign_db.getActiveCampaigns();
         first.addAll(second);
@@ -68,13 +72,12 @@ public class MainScreen extends AppCompatActivity {
         intent.putExtra("Email",currentUser.getEmail());
         intent.putExtra("Password",currentUser.getPassword());
         intent.putExtra("is_Admin",currentUser.getAdminStatus());
+        //Passing campaign name in order to get campaigns data from DB -> Could use campaign id if needed, just look for ID instead of name
         intent.putExtra("CampaignName",campaignName);
         startActivity(intent);
     }
     public void LogoutClicked(View view){
-        /*Intent intent = new Intent(this, StartActivity.class);
-        startActivity(intent);
-        */
+        //Pops current activity from the stack and returns to previous
         finish();
     }
 
