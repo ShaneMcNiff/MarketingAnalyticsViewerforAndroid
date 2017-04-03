@@ -46,13 +46,11 @@ public class Question_Campaign_DB extends SQLiteOpenHelper {
 
     }
 
-    public void InsertRootInfo(){
+    public void InsertRootInfo(){//this is a method that can be used to insert data or just run SQL manually during development
         SQLiteDatabase db = this.getWritableDatabase();
-        String insert_into_campaigns = "insert into questionCampaigns values (1, 'Tesco Online Survey', 'Tesco are conducting an online survey to find out more about their customers.', 1, 2, 15, 100, 0, '01-01-2017', '01-05-2017');";
-        String update = "update questionCampaigns set id = 2 where campaign_name = 'Tesco Online Survey'";
-        db.execSQL(update);
     }
 
+    //Returns a String arraylist containing all names of campaigns
     public ArrayList<String> getActiveCampaigns(){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -65,6 +63,7 @@ public class Question_Campaign_DB extends SQLiteOpenHelper {
         return campaignNames;
     }
 
+    //Returns a questionCampaign object that has been filled with all details of a campaign from the Database -> Pass in the campaign name but could be changed to ID if wanted
     public QuestionCampaign getCampaignDetails(String campaignName){
         SQLiteDatabase db = this.getReadableDatabase();
         String[] constraint = {campaignName};
