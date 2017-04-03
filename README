@@ -1,0 +1,4 @@
+There are some php files included in this project -> They were part of my efforts to make the database work through a MySQL server hosted on Amazon web services (AWS)
+I have left them in to show what I was trying to do with them.
+
+There are two objects part of the android project itself that are also part of this effort -> JSONParser and BackgroundWorker
