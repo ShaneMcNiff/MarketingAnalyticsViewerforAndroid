@@ -23,8 +23,7 @@ public class Countries_DB extends SQLiteOpenHelper {
 
     }
 
-    public void InsertRootInfo(){
+    public void InsertRootInfo(){//this is a method that can be used to insert data or just run SQL manually during development
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("insert into countries values (1, 'Ireland');");
     }
 }
