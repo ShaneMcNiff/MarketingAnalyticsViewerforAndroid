@@ -33,11 +33,11 @@ public class Users_DB extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
-    public void InsertRootInfo(){
+    public void InsertRootInfo(){//this is a method that can be used to insert data or just run SQL manually during development
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("insert into users values ('Shane Mc Niff','shanemcniffATgmail.com','Cartroneast1',1)");
     }
 
+    //Returns a boolean after checking to see if supplied email and password exist in DB
     public boolean userExists(String email, String password) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -61,10 +61,12 @@ public class Users_DB extends SQLiteOpenHelper {
 
     }
 
+    //Returns a user object after being supplied a correct email and password
     public User getUserDetails(String email, String password) {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
+        //This section is used to parse the '@' symbol, as SQLite cannot store that particular symbol
         String replace = "";
         for(int i = 0; i < email.length(); i++){
             if(email.substring(i,i+1).equals("@")){
@@ -77,6 +79,7 @@ public class Users_DB extends SQLiteOpenHelper {
         Cursor resultSet = db.rawQuery("Select * from users where email = ? and password = ?",new String[]{replace,password});
         resultSet.moveToFirst();
 
+        //Replaces the AT which is a stand in for '@' with @
         String fix = "";
         for(int i = 0; i < resultSet.getString(1).length(); i++){
             if(i + 2 < resultSet.getString(1).length()) {
