@@ -29,7 +29,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        popup = (TextView) findViewById(R.id.popup);
+        popup = (TextView) findViewById(R.id.popup);//Getting the 'wrong email/password' message ready here
         popup.setVisibility(View.INVISIBLE);
         Email = (EditText)findViewById(R.id.input_email);
         Password = (EditText)findViewById(R.id.input_password);
@@ -37,9 +37,10 @@ public class StartActivity extends AppCompatActivity {
 
     public void onLogin(View view){
 
-        String email = Email.getText().toString();
-        String password = Password.getText().toString();
+        String email = Email.getText().toString();//Grab Email
+        String password = Password.getText().toString();//Grab password
 
+        //Initialise Users database here in order to keep it in scope for checking email and password
         Users_DB user_db = new Users_DB(this);
         user_db.InsertRootInfo();
 
@@ -49,16 +50,18 @@ public class StartActivity extends AppCompatActivity {
         if (isUser) {
             User user = user_db.getUserDetails(email, password);
             Intent intent = new Intent(this, MainScreen.class);
+            //Pass along the user throughout the application in case of user specific details coming from databases
             intent.putExtra("Email", user.getEmail());
             intent.putExtra("Name", user.getName());
             intent.putExtra("Password", user.getPassword());
             intent.putExtra("is_Admin", user.getAdminStatus());
             startActivity(intent);
         }else{
-            popup.setVisibility(View.VISIBLE);
+            popup.setVisibility(View.VISIBLE);//Email or password was incorrect or does not exist
         }
     }
 
+    //Initialise all databases here -> if you are pulling info from a server, you want to do that here as well
     public void InitialiseDB(){
 
         Countries_DB countries_db = new Countries_DB(this);
