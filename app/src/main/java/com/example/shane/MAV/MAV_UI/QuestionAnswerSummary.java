@@ -54,6 +54,13 @@ public class QuestionAnswerSummary extends AppCompatActivity {
         campaigns_db = new Campaigns_DB(this);
         responses_db = new Responses_DB(this);
 
+        setSpinner();
+
+        setTexts();
+
+    }
+
+    public void setTexts(){
         String []answersQuestion1 = responses_db.getStatsAnswer1();
         String []answersQuestion2 = responses_db.getStatsAnswer2();
         String []answersQuestion3 = responses_db.getStatsAnswer3();
@@ -81,6 +88,8 @@ public class QuestionAnswerSummary extends AppCompatActivity {
         setAnswer3.setText(answers[2]);
         setAnswer4.setText(answers[3]);
 
+
+        //I have it set up so that there are three questions being asked -> This section gets the question that has been chosen and is setting the answer texts to how many each answer was chosen
         if(id == 1){
             int answer1 = 0,answer2 = 0,answer3 = 0,answer4 = 0;
             for(int i = 0; i < answersQuestion1.length; i++){
@@ -130,8 +139,6 @@ public class QuestionAnswerSummary extends AppCompatActivity {
             setStat3.setText(answer3 + "");
             setStat4.setText(answer4 + "");
         }
-
-        setSpinner();
     }
 
     public boolean isSimpleCampaign(){
