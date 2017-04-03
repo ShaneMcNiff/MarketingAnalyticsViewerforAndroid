@@ -1,8 +1,6 @@
 package com.example.shane.MAV.Objects;
 
-/**
- * Created by Shane on 16/03/2017.
- */
+//This is a class I used to generate some test data, it is currently not in use in the project but is something used during the testing phase
 
 public class GenerateTestData {
 
