@@ -1,13 +1,9 @@
 package com.example.shane.MAV.Objects;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+
 
 import com.example.shane.MAV.Interfaces.usersInterfce;
 
-/**
- * Created by Shane on 22/12/2016.
- */
 
 public class User implements usersInterfce{
 
