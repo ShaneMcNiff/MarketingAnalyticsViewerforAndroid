@@ -59,14 +59,15 @@ public class CampaignHome extends AppCompatActivity{
         int is_Admin = extras.getInt("is_Admin");
         currentUser = new User(name, email, password, is_Admin);
 
-        setSpinner();
+        setSpinner();//Set the Spinner object
 
-        setText();
+        setText();//Sets all texts depending on what type of campaign is being viewed
 
 
     }
 
     public void setText(){
+        //If another type of campaign is added, just add another chack for that type of campaign and set texts appropriately
         if(isSimpleCampaign()) {
             campaign = campaigns_db.getCampaignDetails(campaignName);
             String ClientName = clients_db.getClientNameFromID(campaign.getClientID());
@@ -89,18 +90,18 @@ public class CampaignHome extends AppCompatActivity{
     }
 
     public boolean isSimpleCampaign(){
-        ArrayList<String> questionCamapaigns = question_campaign_db.getActiveCampaigns();
-        ArrayList<String> simpleCamapaigns = campaigns_db.getActiveCampaigns();
-        if(questionCamapaigns.contains(campaignName)){
+        ArrayList<String> questionCampaigns = question_campaign_db.getActiveCampaigns();
+        ArrayList<String> simpleCampaigns = campaigns_db.getActiveCampaigns();
+        if(questionCampaigns.contains(campaignName)){
             questionCampaign = (question_campaign_db.getCampaignDetails(campaignName));
             return false;
-        }else if(simpleCamapaigns.contains(campaignName)){
+        }else if(simpleCampaigns.contains(campaignName)){
             return true;
         }
         return false;
     }
 
-
+    //This Spinner is used in every activity from here in -> it is able to handle both types of campaigns that are currently being used
     public void setSpinner() {
 
                                 if (!isSimpleCampaign()) {
@@ -122,7 +123,7 @@ public class CampaignHome extends AppCompatActivity{
                                         list.add(questionsAsked[i]);
                                     }
 
-                                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list);
+                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
                                     dropdown.setAdapter(adapter);
 
                                     dropdown = (Spinner) findViewById(R.id.spinner);
@@ -157,13 +158,13 @@ public class CampaignHome extends AppCompatActivity{
                                 finish();
                                 break;
                             case (3):
-                                Intent perforemanceIntent = new Intent(CampaignHome.this, CampaignPerforemance.class);
-                                perforemanceIntent.putExtra("Name", currentUser.getName());
-                                perforemanceIntent.putExtra("Email", currentUser.getEmail());
-                                perforemanceIntent.putExtra("Password", currentUser.getPassword());
-                                perforemanceIntent.putExtra("is_Admin", currentUser.getAdminStatus());
-                                perforemanceIntent.putExtra("CampaignName", campaignName);
-                                CampaignHome.this.startActivity(perforemanceIntent);
+                                Intent performanceIntent = new Intent(CampaignHome.this, CampaignPerforemance.class);
+                                performanceIntent.putExtra("Name", currentUser.getName());
+                                performanceIntent.putExtra("Email", currentUser.getEmail());
+                                performanceIntent.putExtra("Password", currentUser.getPassword());
+                                performanceIntent.putExtra("is_Admin", currentUser.getAdminStatus());
+                                performanceIntent.putExtra("CampaignName", campaignName);
+                                CampaignHome.this.startActivity(performanceIntent);
                                 finish();
                                 break;
                             case (4):
@@ -194,7 +195,7 @@ public class CampaignHome extends AppCompatActivity{
             list.add("Summary");
             list.add("Performance");
             list.add("Goals");
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
             dropdown.setAdapter(adapter);
 
             dropdown = (Spinner) findViewById(R.id.spinner);
@@ -218,13 +219,13 @@ public class CampaignHome extends AppCompatActivity{
                             finish();
                             break;
                         case (3):
-                            Intent perforemanceIntent = new Intent(CampaignHome.this, CampaignPerforemance.class);
-                            perforemanceIntent.putExtra("Name", currentUser.getName());
-                            perforemanceIntent.putExtra("Email", currentUser.getEmail());
-                            perforemanceIntent.putExtra("Password", currentUser.getPassword());
-                            perforemanceIntent.putExtra("is_Admin", currentUser.getAdminStatus());
-                            perforemanceIntent.putExtra("CampaignName", campaignName);
-                            CampaignHome.this.startActivity(perforemanceIntent);
+                            Intent performanceIntent = new Intent(CampaignHome.this, CampaignPerforemance.class);
+                            performanceIntent.putExtra("Name", currentUser.getName());
+                            performanceIntent.putExtra("Email", currentUser.getEmail());
+                            performanceIntent.putExtra("Password", currentUser.getPassword());
+                            performanceIntent.putExtra("is_Admin", currentUser.getAdminStatus());
+                            performanceIntent.putExtra("CampaignName", campaignName);
+                            CampaignHome.this.startActivity(performanceIntent);
                             finish();
                             break;
                         case (4):
