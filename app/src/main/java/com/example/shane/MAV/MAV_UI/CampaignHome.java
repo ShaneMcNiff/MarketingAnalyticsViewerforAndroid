@@ -89,7 +89,7 @@ public class CampaignHome extends AppCompatActivity{
         }
     }
 
-    public boolean isSimpleCampaign(){
+    public boolean isSimpleCampaign(){//simple method to find out what type of campaign is currently being viewed using the name of the campaign
         ArrayList<String> questionCampaigns = question_campaign_db.getActiveCampaigns();
         ArrayList<String> simpleCampaigns = campaigns_db.getActiveCampaigns();
         if(questionCampaigns.contains(campaignName)){
@@ -104,13 +104,11 @@ public class CampaignHome extends AppCompatActivity{
     //This Spinner is used in every activity from here in -> it is able to handle both types of campaigns that are currently being used
     public void setSpinner() {
 
-                                if (!isSimpleCampaign()) {
+                                if (!isSimpleCampaign()) {//question campaign spinner settings -> same all the way through the project
 
-                                    Log.d("questionCampaign", "setSpinner: " + questionCampaign.getCampaignID());
-                                    String campaignID = questionCampaign.getCampaignID() + "";
+                                    String campaignID = questionCampaign.getCampaignID() + "";//is needed as a string
                                     String []questionsAsked = questions_db.getQuestions(campaignID);
 
-                                    Log.d("Questionnaire", "setSpinner: " + questionsAsked[0]);
                                     dropdown = (Spinner) findViewById(R.id.spinner);
                                     ArrayList<String> list = new ArrayList<>();
                                     list.add("Select Tab");
@@ -119,6 +117,7 @@ public class CampaignHome extends AppCompatActivity{
                                     list.add("Performance");
                                     list.add("Goals");
 
+                                    //Add tab in the spinner for each question asked in the campaign
                                     for (int i = 0; i < questionsAsked.length; i++) {
                                         list.add(questionsAsked[i]);
                                     }
@@ -127,10 +126,11 @@ public class CampaignHome extends AppCompatActivity{
                                     dropdown.setAdapter(adapter);
 
                                     dropdown = (Spinner) findViewById(R.id.spinner);
-                                    //dropdown.setOnItemSelectedListener(new CustomSpinnerActivity());
                                     dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                         @Override
                                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                                            //This accommodates all questions that are being asked in the campaign -> they all use the same activity
                                             if (position > 4) {
                                                 Intent questionIntent = new Intent(CampaignHome.this, QuestionAnswerSummary.class);
                                                 questionIntent.putExtra("Name", currentUser.getName());
@@ -138,6 +138,7 @@ public class CampaignHome extends AppCompatActivity{
                                                 questionIntent.putExtra("Password", currentUser.getPassword());
                                                 questionIntent.putExtra("is_Admin", currentUser.getAdminStatus());
                                                 questionIntent.putExtra("CampaignName", campaignName);
+                                                //I am passing the question text to the next activity to get the question details from the DB -> Could easily be changed to something like an ID if needed
                                                 questionIntent.putExtra("Question", dropdown.getSelectedItem().toString());
                                                 CampaignHome.this.startActivity(questionIntent);
                                                 finish();
@@ -187,7 +188,7 @@ public class CampaignHome extends AppCompatActivity{
 
                 }
             });
-        } else {
+        } else {//Simple campaign spinner settings -> same all the way through the project
             dropdown = (Spinner) findViewById(R.id.spinner);
             ArrayList<String> list = new ArrayList<>();
             list.add("Select Tab");
