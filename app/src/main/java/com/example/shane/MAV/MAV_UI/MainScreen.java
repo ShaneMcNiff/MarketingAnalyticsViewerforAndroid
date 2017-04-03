@@ -53,13 +53,13 @@ public class MainScreen extends AppCompatActivity {
 
         //Get all active campaigns and add them into the spinner to be selected by the user
         //Potential to add user designated campaigns only if needed -> just add check for said
-        ArrayList<String> first = campaigns_db.getActiveCampaigns();
-        ArrayList<String> second = question_campaign_db.getActiveCampaigns();
-        first.addAll(second);
+        ArrayList<String> activeSimpleCampaigns = campaigns_db.getActiveCampaigns();
+        ArrayList<String> activeQuestionCampaigns = question_campaign_db.getActiveCampaigns();
+        activeSimpleCampaigns.addAll(activeQuestionCampaigns);
 
-        Collections.sort(first);
+        Collections.sort(activeSimpleCampaigns);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, first);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, activeSimpleCampaigns);
         dropdown.setAdapter(adapter);
     }
 
