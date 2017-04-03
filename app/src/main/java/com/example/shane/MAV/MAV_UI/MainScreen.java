@@ -57,10 +57,9 @@ public class MainScreen extends AppCompatActivity {
         ArrayList<String> second = question_campaign_db.getActiveCampaigns();
         first.addAll(second);
 
-        ArrayList<String> list = first;
-        Collections.sort(list);
+        Collections.sort(first);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, first);
         dropdown.setAdapter(adapter);
     }
 
