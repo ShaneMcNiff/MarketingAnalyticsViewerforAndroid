@@ -8,8 +8,6 @@ import android.widget.EditText;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.shane.MAV.Database.Campaign_entries_DB;
-import com.example.shane.MAV.Database.Campaign_profiles_DB;
 import com.example.shane.MAV.Database.Campaigns_DB;
 import com.example.shane.MAV.Database.Clients_DB;
 import com.example.shane.MAV.Database.Countries_DB;
@@ -67,12 +65,8 @@ public class StartActivity extends AppCompatActivity {
         countries_db.InsertRootInfo();
         Clients_DB clients_db = new Clients_DB(this);
         clients_db.InsertRootInfo();
-        Campaign_profiles_DB campaign_profiles_db = new Campaign_profiles_DB(this);
-        campaign_profiles_db.InsertRootInfo();
         Campaigns_DB campaigns_db = new Campaigns_DB(this);
         campaigns_db.InsertRootInfo();
-        Campaign_entries_DB campaign_entries_db = new Campaign_entries_DB(this);
-        campaign_entries_db.InsertRootInfo();
         Question_Campaign_DB question_campaign_db = new Question_Campaign_DB(this);
         question_campaign_db.InsertRootInfo();
         Questions_DB questions_db = new Questions_DB(this);
