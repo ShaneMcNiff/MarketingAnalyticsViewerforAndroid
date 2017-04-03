@@ -32,29 +32,11 @@ public class Questions_DB extends SQLiteOpenHelper {
 
     }
 
-    public void InsertRootInfo(){
+    public void InsertRootInfo(){//this is a method that can be used to insert data or just run SQL manually during development
         SQLiteDatabase db = this.getWritableDatabase();
-
-        String create_questions_table = "CREATE TABLE `questions` (\n" +
-                "  `id` int(11) NOT NULL,\n" +
-                "  `questionText` varchar(200) NOT NULL,\n" +
-                "  `answer1` varchar(200),\n" +
-                "  `answer2` varchar(200),\n" +
-                "  `answer3` varchar(200),\n" +
-                "  `answer4` varchar(200),\n" +
-                "  `campaign_id` varchar(500) NOT NULL,\n" +
-                "  PRIMARY KEY (`id`));";
-        //db.execSQL(create_questions_table);
-
-        String insert_into_questions1 = "insert into questions values (1, 'What age range are you in?', '18-29', '30-34','35-49', '50 or older',2);";
-        String insert_into_questions2 = "insert into questions values (2, 'Where do you live?', 'Tullamore', 'Birr','Roscrae', 'Athlone',2);";
-        String insert_into_questions3 = "insert into questions values (3, 'On a scale of 1 to 4, how happy were you with our service today?', '1', '2','3', '4',2);";
-
-        //db.execSQL(insert_into_questions1);
-        //db.execSQL(insert_into_questions2);
-        //db.execSQL(insert_into_questions3);
     }
 
+    //Returns a String array with all of the questions asked for a specific campaign -> uses the campaign id that links a question to a campaign
     public String[] getQuestions(String campaignID){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -68,6 +50,7 @@ public class Questions_DB extends SQLiteOpenHelper {
         return returnString;
     }
 
+    //returns all answers that are supplied to a question that a consumer can choose
     public String[] getAnswers(String questionText){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -93,30 +76,7 @@ public class Questions_DB extends SQLiteOpenHelper {
         return returnString;
     }
 
-    public String[][] getQuestionnaire(String campaignID){
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor resultSet = db.rawQuery("Select questionText, answer1, answer2, answer3, answer4 from questions where campaign_id = ?",new String[]{campaignID});
-
-        resultSet.moveToFirst();
-
-        Log.d("resultSet", "getQuestionnaire: " + resultSet.getString(0));
-
-        String [][]questionnaire = new String[resultSet.getCount()][];
-
-        for(int i = 0; i < resultSet.getCount(); i++){
-
-            questionnaire[i][0] = resultSet.getString(0);
-            questionnaire[i][1] = resultSet.getString(1);
-            questionnaire[i][2] = resultSet.getString(2);
-            questionnaire[i][3] = resultSet.getString(3);
-            resultSet.moveToNext();
-
-        }
-
-        return questionnaire;
-    }
-
+    //Returns the question ID when supplied the text of the question
     public int getQuestionId(String questionText){
         SQLiteDatabase db = this.getReadableDatabase();
 
