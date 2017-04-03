@@ -31,42 +31,11 @@ public class Responses_DB extends SQLiteOpenHelper{
 
     }
 
-    public void InsertRootData(){
+    public void InsertRootData(){//this is a method that can be used to insert data or just run SQL manually during development
         SQLiteDatabase db = this.getWritableDatabase();
-
-        String insert_answer1 = "insert into responses values (1,1,1,4)";
-        String insert_answer2 = "insert into responses values (1,1,1,4)";
-        String insert_answer3 = "insert into responses values (1,1,1,4)";
-        String insert_answer4 = "insert into responses values (1,1,2,3)";
-        String insert_answer5 = "insert into responses values (1,2,2,3)";
-        String insert_answer6 = "insert into responses values (1,2,2,3)";
-        String insert_answer7 = "insert into responses values (1,2,2,4)";
-        String insert_answer8 = "insert into responses values (1,2,2,4)";
-        String insert_answer9 = "insert into responses values (1,2,3,4)";
-        String insert_answer10 = "insert into responses values (1,2,3,2)";
-        String insert_answer11 = "insert into responses values (1,2,3,2)";
-        String insert_answer12 = "insert into responses values (1,3,3,4)";
-        String insert_answer13 = "insert into responses values (1,3,4,1)";
-        String insert_answer14 = "insert into responses values (1,3,4,1)";
-        String insert_answer15 = "insert into responses values (1,4,4,2)";
-
-        /*db.execSQL(insert_answer1);
-        db.execSQL(insert_answer2);
-        db.execSQL(insert_answer3);
-        db.execSQL(insert_answer4);
-        db.execSQL(insert_answer5);
-        db.execSQL(insert_answer6);
-        db.execSQL(insert_answer7);
-        db.execSQL(insert_answer8);
-        db.execSQL(insert_answer9);
-        db.execSQL(insert_answer10);
-        db.execSQL(insert_answer11);
-        db.execSQL(insert_answer12);
-        db.execSQL(insert_answer13);
-        db.execSQL(insert_answer14);
-        db.execSQL(insert_answer15);*/
     }
 
+    //Returns the statistics of all the answers that were supplied
     public String[] getStatsAnswer1(){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -81,6 +50,8 @@ public class Responses_DB extends SQLiteOpenHelper{
 
         return  returnString;
     }
+
+    //Returns the statistics of all the answers that were supplied
     public String[] getStatsAnswer2(){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -95,6 +66,8 @@ public class Responses_DB extends SQLiteOpenHelper{
 
         return  returnString;
     }
+
+    //Returns the statistics of all the answers that were supplied
     public String[] getStatsAnswer3(){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -108,18 +81,5 @@ public class Responses_DB extends SQLiteOpenHelper{
         }
 
         return  returnString;
-    }
-
-
-    public String[] getResposnes(){
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor resultSet = db.rawQuery("Select * from responses",new String[]{});
-        resultSet.moveToFirst();
-        String []responses = new String[resultSet.getCount()];
-        for(int i = 0; i < resultSet.getCount(); i++){
-            responses[i] = resultSet.getString(i);
-        }
-        return responses;
     }
 }
