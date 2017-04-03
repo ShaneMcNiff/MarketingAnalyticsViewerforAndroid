@@ -152,7 +152,7 @@ public class CampaignGoals extends AppCompatActivity {
                                 summaryIntent.putExtra("CampaignName",campaignName);
                                 CampaignGoals.this.startActivity(summaryIntent);finish();break;
                             case (3):
-                                Intent perforemanceIntent = new Intent(CampaignGoals.this, CampaignPerforemance.class);
+                                Intent perforemanceIntent = new Intent(CampaignGoals.this, CampaignPerformance.class);
                                 perforemanceIntent.putExtra("Name", currentUser.getName());
                                 perforemanceIntent.putExtra("Email",currentUser.getEmail());
                                 perforemanceIntent.putExtra("Password",currentUser.getPassword());
@@ -206,7 +206,7 @@ public class CampaignGoals extends AppCompatActivity {
                             summaryIntent.putExtra("CampaignName",campaignName);
                             CampaignGoals.this.startActivity(summaryIntent);finish();break;
                         case (3):
-                            Intent perforemanceIntent = new Intent(CampaignGoals.this, CampaignPerforemance.class);
+                            Intent perforemanceIntent = new Intent(CampaignGoals.this, CampaignPerformance.class);
                             perforemanceIntent.putExtra("Name", currentUser.getName());
                             perforemanceIntent.putExtra("Email",currentUser.getEmail());
                             perforemanceIntent.putExtra("Password",currentUser.getPassword());

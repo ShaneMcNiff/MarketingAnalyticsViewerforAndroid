@@ -174,7 +174,7 @@ public class CampaignSummary extends AppCompatActivity {
                                 CampaignSummary.this.startActivity(homeIntent);finish();break;
                             case (2):break;
                             case (3):
-                                Intent perforemanceIntent = new Intent(CampaignSummary.this, CampaignPerforemance.class);
+                                Intent perforemanceIntent = new Intent(CampaignSummary.this, CampaignPerformance.class);
                                 perforemanceIntent.putExtra("Name", currentUser.getName());
                                 perforemanceIntent.putExtra("Email",currentUser.getEmail());
                                 perforemanceIntent.putExtra("Password",currentUser.getPassword());
@@ -227,7 +227,7 @@ public class CampaignSummary extends AppCompatActivity {
                             CampaignSummary.this.startActivity(homeIntent);finish();break;
                         case (2):break;
                         case (3):
-                            Intent perforemanceIntent = new Intent(CampaignSummary.this, CampaignPerforemance.class);
+                            Intent perforemanceIntent = new Intent(CampaignSummary.this, CampaignPerformance.class);
                             perforemanceIntent.putExtra("Name", currentUser.getName());
                             perforemanceIntent.putExtra("Email",currentUser.getEmail());
                             perforemanceIntent.putExtra("Password",currentUser.getPassword());

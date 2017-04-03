@@ -3,7 +3,6 @@ package com.example.shane.MAV.MAV_UI;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -159,7 +158,7 @@ public class CampaignHome extends AppCompatActivity{
                                 finish();
                                 break;
                             case (3):
-                                Intent performanceIntent = new Intent(CampaignHome.this, CampaignPerforemance.class);
+                                Intent performanceIntent = new Intent(CampaignHome.this, CampaignPerformance.class);
                                 performanceIntent.putExtra("Name", currentUser.getName());
                                 performanceIntent.putExtra("Email", currentUser.getEmail());
                                 performanceIntent.putExtra("Password", currentUser.getPassword());
@@ -220,7 +219,7 @@ public class CampaignHome extends AppCompatActivity{
                             finish();
                             break;
                         case (3):
-                            Intent performanceIntent = new Intent(CampaignHome.this, CampaignPerforemance.class);
+                            Intent performanceIntent = new Intent(CampaignHome.this, CampaignPerformance.class);
                             performanceIntent.putExtra("Name", currentUser.getName());
                             performanceIntent.putExtra("Email", currentUser.getEmail());
                             performanceIntent.putExtra("Password", currentUser.getPassword());

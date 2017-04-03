@@ -206,7 +206,7 @@ public class QuestionAnswerSummary extends AppCompatActivity {
                                 finish();
                                 break;
                             case (3):
-                                Intent perforemanceIntent = new Intent(QuestionAnswerSummary.this, CampaignPerforemance.class);
+                                Intent perforemanceIntent = new Intent(QuestionAnswerSummary.this, CampaignPerformance.class);
                                 perforemanceIntent.putExtra("Name", currentUser.getName());
                                 perforemanceIntent.putExtra("Email", currentUser.getEmail());
                                 perforemanceIntent.putExtra("Password", currentUser.getPassword());
@@ -274,7 +274,7 @@ public class QuestionAnswerSummary extends AppCompatActivity {
                             finish();
                             break;
                         case (3):
-                            Intent perforemanceIntent = new Intent(QuestionAnswerSummary.this, CampaignPerforemance.class);
+                            Intent perforemanceIntent = new Intent(QuestionAnswerSummary.this, CampaignPerformance.class);
                             perforemanceIntent.putExtra("Name", currentUser.getName());
                             perforemanceIntent.putExtra("Email", currentUser.getEmail());
                             perforemanceIntent.putExtra("Password", currentUser.getPassword());

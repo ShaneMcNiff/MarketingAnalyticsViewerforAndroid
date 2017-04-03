@@ -20,7 +20,7 @@ import com.example.shane.MAV.Objects.User;
 
 import java.util.ArrayList;
 
-public class CampaignPerforemance extends AppCompatActivity {
+public class CampaignPerformance extends AppCompatActivity {
 
     String campaignName = "";
     User currentUser;
@@ -127,44 +127,44 @@ public class CampaignPerforemance extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     if (position > 4) {
-                        Intent questionIntent = new Intent(CampaignPerforemance.this, QuestionAnswerSummary.class);
+                        Intent questionIntent = new Intent(CampaignPerformance.this, QuestionAnswerSummary.class);
                         questionIntent.putExtra("Name", currentUser.getName());
                         questionIntent.putExtra("Email", currentUser.getEmail());
                         questionIntent.putExtra("Password", currentUser.getPassword());
                         questionIntent.putExtra("is_Admin", currentUser.getAdminStatus());
                         questionIntent.putExtra("CampaignName", campaignName);
                         questionIntent.putExtra("Question", dropdown.getSelectedItem().toString());
-                        CampaignPerforemance.this.startActivity(questionIntent);
+                        CampaignPerformance.this.startActivity(questionIntent);
                         finish();
                     } else {
                         switch (position){
                             case (0):break;
                             case (1):
-                                Intent homeIntent = new Intent(CampaignPerforemance.this, CampaignHome.class);
+                                Intent homeIntent = new Intent(CampaignPerformance.this, CampaignHome.class);
                                 homeIntent.putExtra("Name", currentUser.getName());
                                 homeIntent.putExtra("Email",currentUser.getEmail());
                                 homeIntent.putExtra("Password",currentUser.getPassword());
                                 homeIntent.putExtra("is_Admin",currentUser.getAdminStatus());
                                 homeIntent.putExtra("CampaignName",campaignName);
-                                CampaignPerforemance.this.startActivity(homeIntent);finish();
+                                CampaignPerformance.this.startActivity(homeIntent);finish();
                                 break;
                             case (2):
-                                Intent summaryIntent = new Intent(CampaignPerforemance.this, CampaignSummary.class);
+                                Intent summaryIntent = new Intent(CampaignPerformance.this, CampaignSummary.class);
                                 summaryIntent.putExtra("Name", currentUser.getName());
                                 summaryIntent.putExtra("Email",currentUser.getEmail());
                                 summaryIntent.putExtra("Password",currentUser.getPassword());
                                 summaryIntent.putExtra("is_Admin",currentUser.getAdminStatus());
                                 summaryIntent.putExtra("CampaignName",campaignName);
-                                CampaignPerforemance.this.startActivity(summaryIntent);finish();break;
+                                CampaignPerformance.this.startActivity(summaryIntent);finish();break;
                             case (3):break;
                             case (4):
-                                Intent goalsIntent = new Intent(CampaignPerforemance.this, CampaignGoals.class);
+                                Intent goalsIntent = new Intent(CampaignPerformance.this, CampaignGoals.class);
                                 goalsIntent.putExtra("Name", currentUser.getName());
                                 goalsIntent.putExtra("Email",currentUser.getEmail());
                                 goalsIntent.putExtra("Password",currentUser.getPassword());
                                 goalsIntent.putExtra("is_Admin",currentUser.getAdminStatus());
                                 goalsIntent.putExtra("CampaignName",campaignName);
-                                CampaignPerforemance.this.startActivity(goalsIntent);finish();break;
+                                CampaignPerformance.this.startActivity(goalsIntent);finish();break;
 
                         }
                     }
@@ -194,31 +194,31 @@ public class CampaignPerforemance extends AppCompatActivity {
                     switch (position){
                         case (0):break;
                         case (1):
-                            Intent homeIntent = new Intent(CampaignPerforemance.this, CampaignHome.class);
+                            Intent homeIntent = new Intent(CampaignPerformance.this, CampaignHome.class);
                             homeIntent.putExtra("Name", currentUser.getName());
                             homeIntent.putExtra("Email",currentUser.getEmail());
                             homeIntent.putExtra("Password",currentUser.getPassword());
                             homeIntent.putExtra("is_Admin",currentUser.getAdminStatus());
                             homeIntent.putExtra("CampaignName",campaignName);
-                            CampaignPerforemance.this.startActivity(homeIntent);finish();
+                            CampaignPerformance.this.startActivity(homeIntent);finish();
                             break;
                         case (2):
-                            Intent summaryIntent = new Intent(CampaignPerforemance.this, CampaignSummary.class);
+                            Intent summaryIntent = new Intent(CampaignPerformance.this, CampaignSummary.class);
                             summaryIntent.putExtra("Name", currentUser.getName());
                             summaryIntent.putExtra("Email",currentUser.getEmail());
                             summaryIntent.putExtra("Password",currentUser.getPassword());
                             summaryIntent.putExtra("is_Admin",currentUser.getAdminStatus());
                             summaryIntent.putExtra("CampaignName",campaignName);
-                            CampaignPerforemance.this.startActivity(summaryIntent);finish();break;
+                            CampaignPerformance.this.startActivity(summaryIntent);finish();break;
                         case (3):break;
                         case (4):
-                            Intent goalsIntent = new Intent(CampaignPerforemance.this, CampaignGoals.class);
+                            Intent goalsIntent = new Intent(CampaignPerformance.this, CampaignGoals.class);
                             goalsIntent.putExtra("Name", currentUser.getName());
                             goalsIntent.putExtra("Email",currentUser.getEmail());
                             goalsIntent.putExtra("Password",currentUser.getPassword());
                             goalsIntent.putExtra("is_Admin",currentUser.getAdminStatus());
                             goalsIntent.putExtra("CampaignName",campaignName);
-                            CampaignPerforemance.this.startActivity(goalsIntent);finish();break;
+                            CampaignPerformance.this.startActivity(goalsIntent);finish();break;
 
                     }
                 }

@@ -20,7 +20,7 @@
         <activity android:name=".MAV_UI.MainScreen" />
         <activity android:name=".MAV_UI.CampaignHome" />
         <activity android:name=".MAV_UI.CampaignSummary" />
-        <activity android:name=".MAV_UI.CampaignPerforemance" />
+        <activity android:name=".MAV_UI.CampaignPerformance" />
         <activity android:name=".MAV_UI.CampaignGoals" />
         <activity android:name=".MAV_UI.QuestionAnswerSummary"></activity>
     </application>
