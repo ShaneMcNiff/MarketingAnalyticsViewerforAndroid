@@ -48,28 +48,11 @@ public class Campaigns_DB extends SQLiteOpenHelper {
 
     }
 
-    public void InsertRootInfo(){
+    public void InsertRootInfo(){//this is a method that can be used to insert data or just run SQL manually during development
         SQLiteDatabase db = this.getWritableDatabase();
-        String insert_into_campaigns = "insert into campaigns values (1, 'Spar Customer Satisfaction Survey', 'Spar want to see how happy their customers are in a specific shop using the Happy or Not scale', 1, 1, 542, 1000, 136, 463, 79, '01-01-2017', '01-05-2017');";
-        String change = "update campaigns set `start_date` = '01-01-2017' where `id` = 1";
-        String drop = "drop table campaigns";
-        String create_campaigns_table = "CREATE TABLE `campaigns` (\n" +
-                "  `id` int(11) NOT NULL,\n" +
-                "  `campaign_name` varchar(128) NOT NULL,\n" +
-                "  `description` varchar(500) NOT NULL,\n" +
-                "  `country_id` int(4) NOT NULL,\n" +
-                "  `client_id` int(4) NOT NULL,\n" +
-                "  `current_entry_count` int(11) NOT NULL,\n" +
-                "  `estimated_entry_count` int(11) DEFAULT NULL,\n" +
-                "  `failed_entries` int(11) DEFAULT NULL,\n" +
-                "  `positive_responses` int(11) DEFAULT NULL,\n" +
-                "  `negative_responses` int(11) NOT NULL,\n" +
-                "  `start_date` datetime NOT NULL,\n" +
-                "  `end_date` datetime NOT NULL,\n" +
-                "  PRIMARY KEY (`id`));";
-        db.execSQL(change);
     }
 
+    //Returns a String arraylist containing all names of campaigns
     public ArrayList<String> getActiveCampaigns(){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -82,6 +65,7 @@ public class Campaigns_DB extends SQLiteOpenHelper {
         return campaignNames;
     }
 
+    //Returns a campaign object that has been filled with all details of a campaign from the Database -> Pass in the campaign name but could be changed to ID if wanted
     public Campaign getCampaignDetails(String campaignName){
         SQLiteDatabase db = this.getReadableDatabase();
         String[] constraint = {campaignName};
