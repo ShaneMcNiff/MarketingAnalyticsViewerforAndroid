@@ -48,13 +48,14 @@ public class CampaignSummary extends AppCompatActivity {
         question_campaign_db = new Question_Campaign_DB(this);
         questions_db = new Questions_DB(this);
 
-        setTexts();
         setSpinner();
+
+        setTexts();
 
 
     }
 
-    public void setTexts(){
+    public void setTexts(){//similar set up to the campaignHome setTexts()
         if(isSimpleCampaign()) {
             Campaign campaign = campaigns_db.getCampaignDetails(campaignName);
 
