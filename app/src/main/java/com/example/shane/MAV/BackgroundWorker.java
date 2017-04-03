@@ -15,7 +15,7 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class LoginWorker {
+public class BackgroundWorker {
 
     //private ProgressDialog pDialog;
 
