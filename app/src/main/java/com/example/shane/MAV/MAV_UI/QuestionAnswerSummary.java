@@ -60,7 +60,7 @@ public class QuestionAnswerSummary extends AppCompatActivity {
 
     }
 
-    public void setTexts(){
+    public void setTexts(){//This set texts is different to teh rest because it has to set all texts dynamically depending on the current question and answers supplied by DB
         String []answersQuestion1 = responses_db.getStatsAnswer1();
         String []answersQuestion2 = responses_db.getStatsAnswer2();
         String []answersQuestion3 = responses_db.getStatsAnswer3();
